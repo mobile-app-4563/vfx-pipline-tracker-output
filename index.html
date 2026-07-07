@@ -32,15 +32,29 @@
   <title>vfxpick_pipeline</title>
   <link rel="manifest" href="manifest.json">
 
-  <script>
-    // Force HTML renderer for offline/local usage to avoid CanvasKit CDN fetches.
-    window.flutterWebRenderer = 'html';
-    window.flutterConfiguration = {
-      renderer: 'html',
-    };
-  </script>
 </head>
 <body>
+  <script>
+    // Aggressively clear stale Flutter/PWA caches that can pin old broken bundles.
+    (function () {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (regs) {
+          for (var i = 0; i < regs.length; i++) {
+            regs[i].unregister();
+          }
+        });
+      }
+      if ('caches' in window) {
+        caches.keys().then(function (keys) {
+          return Promise.all(
+            keys.map(function (key) {
+              return caches.delete(key);
+            }),
+          );
+        });
+      }
+    })();
+  </script>
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
@@ -52,6 +66,3 @@
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
-
-
-<!-- flutter clean;flutter build web --no-web-resources-cdn --no-wasm-dry-run -->
