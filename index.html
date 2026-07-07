@@ -31,6 +31,14 @@
 
   <title>vfxpick_pipeline</title>
   <link rel="manifest" href="manifest.json">
+
+  <script>
+    // Force HTML renderer for offline/local usage to avoid CanvasKit CDN fetches.
+    window.flutterWebRenderer = 'html';
+    window.flutterConfiguration = {
+      renderer: 'html',
+    };
+  </script>
 </head>
 <body>
   <!--
