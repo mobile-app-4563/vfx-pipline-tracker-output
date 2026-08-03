@@ -118826,7 +118826,7 @@ yU(a,b,c){var s=c.b,r=s>=200&&s<300?"\u2705":"\u274c"
 this.mi("API.Response",r+" ["+a+"] "+b+"\n  Status: "+s+"\n  Response: "+this.a1U(A.bh1(A.bfI(c.e)).e0(0,c.w)))},
 yT(a,b,c,d){var s=A.n(c),r=d!=null?"\n  Stack: "+d.k(0):""
 this.mi("API.Error","\u274c ["+a+"] "+b+"\n  Error: "+s+r)},
-a5n(a,b){var s=A.fA("https://t06z0dmj-3000.inc1.devtunnels.ms/api"+a)
+a5n(a,b){var s=A.fA("http://192.168.1.15:3000/api"+a)
 return b!=null&&b.a!==0?s.abL(0,b):s},
 FS(a){return this.a5n(a,null)},
 iQ(a,b,c){return this.ad2(0,b,c)},
@@ -121711,7 +121711,7 @@ a5(){return new A.a5S()}}
 A.a5S.prototype={
 gaBm(){var s=v.G.window.location.hostname
 if(s==="localhost"||s==="127.0.0.1")return"http://127.0.0.1:3000/api/hrms-proxy/Home/Index"
-return"https://t06z0dmj-3000.inc1.devtunnels.ms/api/hrms-proxy/Home/Index"},
+return"http://192.168.1.15:3000/api/hrms-proxy/Home/Index"},
 ak(){this.aA()
 if(!$.beN){$.b8G()
 $.ut().TE("hrms-proxy-view",new A.aOy(this),!0)
